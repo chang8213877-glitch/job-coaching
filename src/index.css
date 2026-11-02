@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f3f2ee;
+  --sf: #ffffff;
+  --ink: #1b1f24;
+  --mute: #5f666e;
+  --line: #dcd8d1;
+  --line-subtle: #eae7e1;
+  --ac: #1a497b;
+  --ac-hover: #143a63;
+  --acink: #ffffff;
+  --sig: #d97706;
+  --sig-bg: #fffbeb;
+  --sig-border: #fcd34d;
+  --ok: #237844;
+  --ok-bg: #f6ffed;
+  --badge-p1-bg: #1a497b;
+  --badge-p1-text: #ffffff;
+  --badge-p2-bg: #d97706;
+  --badge-p2-text: #ffffff;
+  --badge-p3-bg: #ded9d0;
+  --badge-p3-text: #2f3741;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #13171b;
+    --sf: #1c2227;
+    --ink: #e8ecf0;
+    --mute: #9aa2ab;
+    --line: #2e363d;
+    --line-subtle: #242b32;
+    --ac: #5d9cec;
+    --ac-hover: #7db1f0;
+    --acink: #0d1a29;
+    --sig: #f59e0b;
+    --sig-bg: #291e05;
+    --sig-border: #78350f;
+    --ok: #49aa69;
+    --ok-bg: #092b15;
+    --badge-p1-bg: #5d9cec;
+    --badge-p1-text: #0d1a29;
+    --badge-p2-bg: #f59e0b;
+    --badge-p2-text: #1a1202;
+    --badge-p3-bg: #2d353d;
+    --badge-p3-text: #d1d5db;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #13171b;
+  --sf: #1c2227;
+  --ink: #e8ecf0;
+  --mute: #9aa2ab;
+  --line: #2e363d;
+  --line-subtle: #242b32;
+  --ac: #5d9cec;
+  --ac-hover: #7db1f0;
+  --acink: #0d1a29;
+  --sig: #f59e0b;
+  --sig-bg: #291e05;
+  --sig-border: #78350f;
+  --ok: #49aa69;
+  --ok-bg: #092b15;
+  --badge-p1-bg: #5d9cec;
+  --badge-p1-text: #0d1a29;
+  --badge-p2-bg: #f59e0b;
+  --badge-p2-text: #1a1202;
+  --badge-p3-bg: #2d353d;
+  --badge-p3-text: #d1d5db;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f3f2ee;
+  --sf: #ffffff;
+  --ink: #1b1f24;
+  --mute: #5f666e;
+  --line: #dcd8d1;
+  --line-subtle: #eae7e1;
+  --ac: #1a497b;
+  --ac-hover: #143a63;
+  --acink: #ffffff;
+  --sig: #d97706;
+  --sig-bg: #fffbeb;
+  --sig-border: #fcd34d;
+  --ok: #237844;
+  --ok-bg: #f6ffed;
+  --badge-p1-bg: #1a497b;
+  --badge-p1-text: #ffffff;
+  --badge-p2-bg: #d97706;
+  --badge-p2-text: #ffffff;
+  --badge-p3-bg: #ded9d0;
+  --badge-p3-text: #2f3741;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Gauge progress bar with notches */
+.gauge-track {
+  position: relative;
+  height: 14px;
+  background-color: var(--line-subtle);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 9px,
+    var(--line) 9px,
+    var(--line) 11px
+  );
+}
+
+.gauge-fill {
+  height: 100%;
+  background-color: var(--ok);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gauge-fill {
+    transition: none !important;
+  }
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 2px;
+}

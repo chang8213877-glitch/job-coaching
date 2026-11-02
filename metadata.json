@@ -1,0 +1,6 @@
+{
+  "name": "자동차 제조업 직무별 자격증·역량 가이드",
+  "description": "자동차 제조업계 취업 준비생을 위한 7대 핵심 직무별 역량 체크리스트, 자격증 가이드, 경험 증명 방법 및 준비 현황 대시보드",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

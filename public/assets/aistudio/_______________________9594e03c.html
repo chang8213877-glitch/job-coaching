@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>자동차 제조업 직무별 자격증·역량 가이드</title>
+<style>
+:root{--bg:#f1f0ec;--sf:#fff;--ink:#1b1f23;--mute:#5d646b;--line:#d9d6cf;--ac:#1d4e89;--acink:#fff;--sig:#e8a317;--ok:#2e7d4f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171a;--sf:#1d2226;--ink:#e9ecef;--mute:#9aa3ab;--line:#2f363c;--ac:#6fa8e8;--acink:#0a1a2c;--sig:#f0b530;--ok:#59c07f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14171a;--sf:#1d2226;--ink:#e9ecef;--mute:#9aa3ab;--line:#2f363c;--ac:#6fa8e8;--acink:#0a1a2c;--sig:#f0b530;--ok:#59c07f;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 60px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header,main{max-width:900px;margin:0 auto;padding:0 18px}
+header{padding-top:26px}
+h1{font-size:clamp(25px,5vw,36px);line-height:1.25;margin:0 0 6px;font-weight:800;letter-spacing:-.02em}
+.sub{margin:0;color:var(--mute);max-width:62ch}
+.note{margin:14px 0 0;padding:10px 12px;border-left:4px solid var(--sig);background:var(--sf);font-size:13px;color:var(--mute)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line);margin-top:12px}
+.tabs{max-width:900px;margin:0 auto;padding:0 14px;display:flex;gap:4px;overflow-x:auto}
+.tabs button{appearance:none;border:0;background:none;color:var(--mute);font:inherit;font-weight:700;padding:12px 14px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sig)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+main{padding-top:18px;padding-bottom:56px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--sf);color:var(--ink);font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ac);color:var(--acink);border-color:var(--ac)}
+.box{background:var(--sf);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+h2{font-size:18px;margin:0 0 4px}
+h3{font-size:15px;margin:0 0 6px}
+.mute{color:var(--mute);font-size:13px}
+.row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row input{margin-top:5px;accent-color:var(--ac)}
+.row .t{flex:1}
+.bd{display:inline-block;font-size:11.5px;font-weight:700;padding:0 7px;border-radius:4px;margin-left:6px;background:var(--line);color:var(--ink)}
+.bd.p1{background:var(--ac);color:var(--acink)}
+.bd.p2{background:var(--sig);color:#241a00}
+.prog{height:12px;background:var(--line);border-radius:3px;overflow:hidden;margin:8px 0 4px;background-image:repeating-linear-gradient(90deg,transparent 0 9px,var(--bg) 9px 11px)}
+.prog i{display:block;height:100%;background:var(--ok);transition:width .3s}
+ol{margin:6px 0 0;padding-left:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+@media (prefers-reduced-motion:reduce){.prog i{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>자동차 제조업 직무별 자격증·역량 가이드</h1>
+  <p class="sub">직무를 고르면 필요한 역량, 도움이 되는 자격증, 준비 순서를 보여주고 내 준비 현황을 체크할 수 있습니다.</p>
+  <p class="note">자격증은 대부분 필수가 아니라 보완 요소입니다. 현직자 답변에서도 인턴·프로젝트 같은 직무 경험을 더 중시한다는 의견이 많았고, 품질 관련 자격증은 의견이 갈렸습니다. 지원 전 해당 공고의 우대사항을 반드시 확인하세요.</p>
+</header>
+<nav><div class="tabs" role="tablist">
+  <button role="tab" data-t="role" aria-selected="true">직무별 가이드</button>
+  <button role="tab" data-t="cert" aria-selected="false">자격증 목록</button>
+  <button role="tab" data-t="me" aria-selected="false">내 준비 현황</button>
+</div></nav>
+<main id="v"></main>
+<script>
+const P={1:"우선 권장",2:"가산 가능",3:"참고"};
+const R={
+ ev:{n:"전동화·배터리 R&D",sk:[["배터리·BMS 원리",1],["모터·전력전자",1],["제어공학·MBD(Simulink)",1],["CAN 등 차량 통신",2],["Python·C 기초",2]],
+  ce:[["전기기사",2,"전장·전력 분야 가산. 석·학사 연구 경험이 더 중요"],["일반기계기사",3,"열·구동계 직무에서 참고"]],
+  ex:["배터리·모터 관련 연구실·논문","Simulink 제어 모델링 프로젝트","전기차 관련 인턴"],rd:["전공 기초(회로·제어) 정리","MBD 프로젝트 1건","연구·인턴 경험 확보"]},
+ sdv:{n:"SDV·임베디드 SW",sk:[["C/C++",1],["임베디드·제어기 SW",1],["AUTOSAR 개념",1],["RTOS·Linux",2],["Git·CI/CD",2],["ISO 26262 기초",2]],
+  ce:[["정보처리기사",2,"CS 기본기 증빙. 공고 우대사항 확인"],["ISO 26262·ASPICE 교육/인증",3,"민간·국제 과정. 필수 아님, 이해도 어필용"],["리눅스마스터",3,"리눅스 환경 경험 보완"]],
+  ex:["MCU 기반 제어 프로젝트","자작차·로봇·자율주행 동아리","AUTOSAR 실습 경험"],rd:["C/C++·자료구조 다지기","MCU·RTOS 프로젝트","AUTOSAR·기능안전 개념 학습"]},
+ ad:{n:"자율주행·AI",sk:[["Python·C++",1],["ROS/ROS2",1],["딥러닝·센서 융합",1],["Linux 개발환경",2],["수학·확률통계",2]],
+  ce:[["ADsP·빅데이터분석기사",3,"데이터 기본기. 직무 직접성은 낮음"],["정보처리기사",3,"SW 기본기 보완"]],
+  ex:["ROS 기반 프로젝트","자율주행 대회·동아리","논문·오픈소스 기여"],rd:["Python·수학 기초","ROS2 + 인지/계획 프로젝트","포트폴리오 정리"]},
+ it:{n:"IT·앱·클라우드",sk:[["백엔드(Java/Spring·Python)",1],["프론트·앱 개발",2],["SQL·DB",1],["클라우드·DevOps",2],["보안 기초",2]],
+  ce:[["정보처리기사",2,"IT 직군 기본 증빙"],["SQLD",3,"데이터·DB 역량 보완"],["클라우드 자격(AWS 등)",3,"클라우드 직무 가산"]],
+  ex:["서비스 개발 프로젝트·배포","코딩테스트","인포테인먼트·모빌리티 서비스 사례 분석"],rd:["언어 1개 + 프레임워크","프로젝트 배포","코딩테스트 준비"]},
+ mt:{n:"생산기술",sk:[["공정 설계·설비 이해",1],["PLC·자동화",2],["스마트팩토리·로봇",2],["안전·품질 기초",2],["원가·효율 분석",2]],
+  ce:[["산업안전기사",1,"현직자 답변에서 가장 많이 추천(현장·안전 어필)"],["일반기계기사",2,"기계 직무 범용성"],["공조냉동기계기사",3,"현직자가 대안으로 언급"],["전기기사",3,"설비·전기 제어 보완"],["자동차정비기능사",3,"기능사는 가치가 크지 않다는 의견도 있음"]],
+  ex:["현장실습·인턴","자동화·로봇 프로젝트","공정개선(개선안 수치화)"],rd:["산업안전기사 준비","PLC·설비 프로젝트","현장 경험 확보"]},
+ qa:{n:"품질",sk:[["통계적 품질관리(SPC)",1],["FMEA·8D·PPAP",1],["IATF 16949·ISO 9001 이해",1],["데이터 분석(엑셀·Minitab)",2],["자동차 구조·부품 이해",2]],
+  ce:[["품질경영기사",2,"의견 갈림: 자동차엔 큰 도움 안 된다는 답변과 유리하다는 답변이 공존"],["6시그마 GB/BB",2,"BB 수준 권장 의견, 효용이 낮다는 의견도 있음"],["ADsP",3,"데이터 기초 증빙"],["IATF 16949·ISO 9001 교육",2,"현직자가 실무 연관 교육으로 추천"],["전기기사",3,"전장 품질 직무에서 가산"]],
+  ex:["품질 관련 인턴·현장실습","품질 개선 프로젝트(수치화)","자동차 부품 불량 사례 분석"],rd:["SPC·통계 기초","IATF·FMEA 학습","인턴·프로젝트 확보"]},
+ bz:{n:"구매·사업기획",sk:[["원가·협상·공급망",1],["데이터·엑셀 분석",1],["영어·글로벌 소통",1],["시장·산업 분석",2],["재무·손익 이해",2]],
+  ce:[["어학(OPIc IH 이상 등)",1,"현직자 답변에서 어학 점수 언급"],["컴퓨터활용능력",3,"문서·데이터 기본기"],["ADsP",3,"데이터 기초"],["무역·물류 관련 자격",3,"글로벌 사업·구매 보완(일반 정보)"]],
+  ex:["공급망·원가 분석 프로젝트","해외 경험·교환학생","산업 리포트 작성"],rd:["어학 점수 확보","엑셀·데이터 분석","산업·기업 분석 글 작성"]}
+};
+const $=s=>document.querySelector(s),v=$("#v");
+let tab="role",rk="ev",cf=0,chk={};
+try{chk=JSON.parse(localStorage.getItem("chk")||"{}")}catch(e){chk={}}
+const save=()=>{try{localStorage.setItem("chk",JSON.stringify(chk))}catch(e){}};
+const bd=p=>`<span class="bd p${p}">${P[p]}</span>`;
+const id=(k,g,i)=>`${k}.${g}.${i}`;
+function items(k){const r=R[k];return[...r.sk.map((s,i)=>[id(k,"s",i)]),...r.ce.map((s,i)=>[id(k,"c",i)])].map(a=>a[0])}
+function pct(k){const a=items(k);return Math.round(a.filter(x=>chk[x]).length/a.length*100)}
+function row(k,g,i,label,p,extra){const d=id(k,g,i);return `<label class="row"><input type="checkbox" data-c="${d}" ${chk[d]?"checked":""}><span class="t">${label}${p?bd(p):""}${extra?`<br><span class="mute">${extra}</span>`:""}</span></label>`}
+function role(){
+ const r=R[rk];
+ return `<div class="chips">${Object.entries(R).map(([k,x])=>`<button class="chip" data-r="${k}" aria-pressed="${rk===k}">${x.n}</button>`).join("")}</div>
+ <div class="box"><h2>${r.n}</h2><div class="prog"><i style="width:${pct(rk)}%"></i></div><span class="mute">준비 ${pct(rk)}% 완료</span></div>
+ <div class="box"><h3>핵심 역량</h3>${r.sk.map((s,i)=>row(rk,"s",i,s[0],s[1])).join("")}</div>
+ <div class="box"><h3>도움이 되는 자격증</h3>${r.ce.map((c,i)=>row(rk,"c",i,c[0],c[1],c[2])).join("")}</div>
+ <div class="grid"><div class="box"><h3>경험으로 증명하기</h3><ul style="margin:0;padding-left:18px">${r.ex.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+ <div class="box"><h3>준비 순서</h3><ol>${r.rd.map(x=>`<li>${x}</li>`).join("")}</ol></div></div>`;
+}
+function cert(){
+ const all=Object.entries(R).flatMap(([k,r])=>r.ce.map(c=>({n:c[0],p:c[1],m:c[2],j:r.n})));
+ const m={};all.forEach(a=>{(m[a.n]=m[a.n]||{n:a.n,p:a.p,m:a.m,j:[]});m[a.n].p=Math.min(m[a.n].p,a.p);m[a.n].j.push(a.j)});
+ const list=Object.values(m).filter(a=>!cf||a.p===cf).sort((a,b)=>a.p-b.p);
+ return `<div class="chips">${[0,1,2,3].map(p=>`<button class="chip" data-p="${p}" aria-pressed="${cf===p}">${p?P[p]:"전체"}</button>`).join("")}</div>`+
+ list.map(a=>`<div class="box"><h3>${a.n}${bd(a.p)}</h3><p class="mute" style="margin:0 0 4px">관련 직무: ${a.j.join(", ")}</p><p style="margin:0">${a.m}</p></div>`).join("")+
+ `<p class="mute">우선도는 직무별 최고 등급 기준입니다. 현직자 답변과 일반 정보를 종합한 참고용이며 공고 우대사항이 우선입니다.</p>`;
+}
+function me(){
+ return `<div class="box"><h2>직무별 준비 현황</h2>${Object.entries(R).map(([k,r])=>`<div style="margin-top:12px"><b>${r.n}</b> <span class="mute">${pct(k)}%</span><div class="prog"><i style="width:${pct(k)}%"></i></div></div>`).join("")}
+ <p class="mute">체크 상태는 이 브라우저에만 저장됩니다.</p><button class="chip" id="rs">전체 초기화</button></div>`;
+}
+function render(){
+ v.innerHTML=tab==="role"?role():tab==="cert"?cert():me();
+ document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t===tab));
+}
+document.addEventListener("click",e=>{
+ const t=e.target.closest("[data-t],[data-r],[data-p],#rs");if(!t)return;
+ if(t.dataset.t)tab=t.dataset.t;
+ if(t.dataset.r)rk=t.dataset.r;
+ if(t.dataset.p!==undefined)cf=+t.dataset.p;
+ if(t.id==="rs"){chk={};save()}
+ render();
+});
+document.addEventListener("change",e=>{
+ const c=e.target.dataset.c;if(!c)return;
+ chk[c]=e.target.checked;save();
+ const f=document.querySelector(".prog i");if(f){f.style.width=pct(rk)+"%";f.parentNode.nextElementSibling.textContent="준비 "+pct(rk)+"% 완료"}
+});
+render();
+</script>
+</body>
+</html>
